@@ -30,4 +30,10 @@ app.get('/major', (req, res) => {
   return res.render('major', { age });
 });
 
+app.get('/minor', (req, res) => {
+  const { age } = req.query;
+
+  return res.render('minor', { age });
+});
+
 app.listen(3000);
