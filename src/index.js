@@ -17,7 +17,7 @@ app.get('/', (_req, res) => res.render('main'));
 app.post('/check', (req, res) => {
   const { age } = req.body;
 
-  if (age > 18) {
+  if (age >= 18) {
     return res.redirect(`/major?age=${age}`);
   }
 
