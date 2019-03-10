@@ -18,16 +18,16 @@ app.post('/check', (req, res) => {
   const { age } = req.body;
 
   if (age > 18) {
-    res.redirect(`/major?age=${age}`);
+    return res.redirect(`/major?age=${age}`);
   }
 
-  res.redirect(`/minor?age=${age}`);
+  return res.redirect(`/minor?age=${age}`);
 });
 
 app.get('/major', (req, res) => {
   const { age } = req.query;
 
-  res.render('major', { age });
+  return res.render('major', { age });
 });
 
 app.listen(3000);
