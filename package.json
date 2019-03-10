@@ -1,6 +1,6 @@
 {
   "name": "major-or-minor",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "A simple HTTP app that checks for age.",
   "main": "dist/index.js",
   "repository": "https://github.com/matheuspiment/major-or-minor",
