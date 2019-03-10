@@ -1,0 +1,37 @@
+{
+  "name": "major-or-minor",
+  "version": "1.0.0",
+  "description": "A simple HTTP app that checks for age.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/matheuspiment/major-or-minor",
+  "author": "Matheus Pimenta <matheuspiment@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn babel --copy-files --out-dir dist --ignore *.test.js src",
+    "commit": "git-cz",
+    "prebuild": "rimraf dist",
+    "semantic-release": "semantic-release",
+    "start": "nodemon --exec babel-node src/index.js",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "nunjucks": "^3.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-preset-env": "^1.7.0",
+    "commitizen": "^3.0.7",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-import-resolver-babel-module": "^5.0.1",
+    "eslint-plugin-import": "^2.16.0",
+    "nodemon": "^1.18.10",
+    "rimraf": "^2.6.3",
+    "semantic-release": "^15.13.3",
+    "travis-deploy-once": "^5.0.11"
+  }
+}
