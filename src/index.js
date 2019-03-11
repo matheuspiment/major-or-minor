@@ -1,9 +1,10 @@
+import path from 'path';
 import express from 'express';
 import nunjucks from 'nunjucks';
 
 const app = express();
 
-nunjucks.configure('src/views', {
+nunjucks.configure(path.join(__dirname, 'views'), {
   autoescape: true,
   express: app,
   watch: true,
