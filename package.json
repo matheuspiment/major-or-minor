@@ -12,7 +12,7 @@
     "postbuild": "zip -r -q dist.zip ./dist/**",
     "prebuild": "rimraf dist rimraf dist.zip",
     "semantic-release": "semantic-release",
-    "start": "yarn build && dist/index.js",
+    "start": "yarn build && node dist/index.js",
     "start:dev": "nodemon --exec babel-node src/index.js",
     "travis-deploy-once": "travis-deploy-once"
   },
