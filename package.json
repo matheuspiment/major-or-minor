@@ -9,7 +9,8 @@
   "scripts": {
     "build": "yarn babel --copy-files --out-dir dist --ignore *.test.js src",
     "commit": "git-cz",
-    "prebuild": "rimraf dist",
+    "postbuild": "zip -r dist.zip ./dist/**",
+    "prebuild": "rimraf dist rimraf dist.zip",
     "semantic-release": "semantic-release",
     "start": "nodemon --exec babel-node src/index.js",
     "travis-deploy-once": "travis-deploy-once"
