@@ -12,6 +12,17 @@ nunjucks.configure('src/views', {
 app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'njk');
 
+const checkAgeQueryParamsMiddleware = (req, res, next) => {
+  const { age } = req.query;
+  const parsedAge = Number(age);
+
+  if (!typeof parsedAge === 'number' || !Number.isFinite(parsedAge)) {
+    return res.redirect('/');
+  }
+
+  return next();
+};
+
 app.get('/', (_req, res) => res.render('main'));
 
 app.post('/check', (req, res) => {
@@ -24,13 +35,13 @@ app.post('/check', (req, res) => {
   return res.redirect(`/minor?age=${age}`);
 });
 
-app.get('/major', (req, res) => {
+app.get('/major', checkAgeQueryParamsMiddleware, (req, res) => {
   const { age } = req.query;
 
   return res.render('major', { age });
 });
 
-app.get('/minor', (req, res) => {
+app.get('/minor', checkAgeQueryParamsMiddleware, (req, res) => {
   const { age } = req.query;
 
   return res.render('minor', { age });
