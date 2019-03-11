@@ -9,10 +9,11 @@
   "scripts": {
     "build": "yarn babel --copy-files --out-dir dist --ignore *.test.js src",
     "commit": "git-cz",
-    "postbuild": "zip -r dist.zip ./dist/**",
+    "postbuild": "zip -r -q dist.zip ./dist/**",
     "prebuild": "rimraf dist rimraf dist.zip",
     "semantic-release": "semantic-release",
-    "start": "nodemon --exec babel-node src/index.js",
+    "start": "yarn build && node dist/index",
+    "start:dev": "nodemon --exec babel-node src/index.js",
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
