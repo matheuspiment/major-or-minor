@@ -1,7 +1,8 @@
 {
   "env": {
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": "airbnb-base",
   "parser": "babel-eslint",
@@ -20,7 +21,7 @@
   },
   "settings": {
     "import/resolver": {
-      "babel-module": {}
+      "babel-plugin-root-import": {}
     }
   }
 }
