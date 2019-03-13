@@ -7,15 +7,16 @@
   "author": "Matheus Pimenta <matheuspiment@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn babel --copy-files --out-dir dist --ignore *.test.js src",
+    "build": "yarn babel --copy-files --out-dir dist --ignore **/__tests__/** src",
     "commit": "git-cz",
     "heroku-postbuild": "yarn build",
     "postbuild": "zip -r -q dist.zip ./dist/**",
     "prebuild": "rimraf dist rimraf dist.zip",
     "semantic-release": "semantic-release",
     "start": "node dist/index.js",
-    "start:dev": "nodemon --exec babel-node src/index.js",
-    "travis-deploy-once": "travis-deploy-once"
+    "start:dev": "nodemon --exec babel-node src/index.js --ignore __tests__",
+    "travis-deploy-once": "travis-deploy-once",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "express": "^4.16.4",
@@ -24,14 +25,15 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
-    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-root-import": "^6.1.0",
     "babel-preset-env": "^1.7.0",
     "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-import-resolver-babel-module": "^5.0.1",
+    "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
     "eslint-plugin-import": "^2.16.0",
+    "jest": "^24.5.0",
     "nodemon": "^1.18.10",
     "rimraf": "^2.6.3",
     "semantic-release": "^15.13.3",

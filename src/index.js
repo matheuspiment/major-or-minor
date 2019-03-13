@@ -2,6 +2,8 @@ import path from 'path';
 import express from 'express';
 import nunjucks from 'nunjucks';
 
+import checkAge from '~/checkAge';
+
 const app = express();
 
 nunjucks.configure(path.join(__dirname, 'views'), {
@@ -29,7 +31,7 @@ app.get('/', (_req, res) => res.render('main'));
 app.post('/check', (req, res) => {
   const { age } = req.body;
 
-  if (age >= 18) {
+  if (checkAge) {
     return res.redirect(`/major?age=${age}`);
   }
 
